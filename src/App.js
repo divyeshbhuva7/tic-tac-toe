@@ -138,13 +138,13 @@ function App() {
       <div className="user-selector">
         <div className="select-user">
           <Select
-            placeholder="Select User"
+            placeholder="Select starter"
             variant="default"
             w={150}
             data={["O", "X"]}
             onChange={(e) => setUser(e)}
           />
-          <p className="user-description">Default user: O</p>
+          <p className="user-description">Default Starter: O</p>
         </div>
       </div>
 
