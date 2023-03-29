@@ -1,4 +1,4 @@
-import { Select } from "@mantine/core";
+import { Select, Text } from "@mantine/core";
 import { useState } from "react";
 import Confetti from "react-confetti";
 import "./App.css";
@@ -115,6 +115,7 @@ function App() {
 
   const handleClick = (idx) => {
     setDisableUserSelect(true);
+
     if (winner === "" && boxVal[idx].val === "") {
       setBoxVal([...boxVal, (boxVal[idx].val = user)]);
     } else {
@@ -177,7 +178,11 @@ function App() {
         <div className="Gamebody">
           {boxVal.map((bx, idx) => (
             <div className="boxex" onClick={() => handleClick(idx)} key={idx}>
-              {bx.val}
+              {boxVal[idx].val === "O" ? (
+                <Text c="violet">{bx.val}</Text>
+              ) : (
+                <Text c="red">{bx.val}</Text>
+              )}
             </div>
           ))}
         </div>
