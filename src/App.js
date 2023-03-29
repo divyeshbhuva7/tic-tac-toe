@@ -10,6 +10,8 @@ function App() {
   const [user, setUser] = useState("O");
   const [winner, setWinner] = useState("");
 
+  const [disableUserSelect, setDisableUserSelect] = useState(false);
+
   const [boxVal, setBoxVal] = useState([
     { val: "" },
     { val: "" },
@@ -112,6 +114,7 @@ function App() {
   }
 
   const handleClick = (idx) => {
+    setDisableUserSelect(true);
     if (winner === "" && boxVal[idx].val === "") {
       setBoxVal([...boxVal, (boxVal[idx].val = user)]);
     } else {
@@ -122,6 +125,10 @@ function App() {
   };
 
   boxVal.splice(9, boxVal.length);
+
+  function changeUser(e) {
+    setUser(e);
+  }
 
   const handleReset = () => {
     setWinner("");
@@ -136,7 +143,6 @@ function App() {
       { val: "" },
       { val: "" },
     ]);
-    setUser("O");
   };
 
   return (
@@ -151,25 +157,24 @@ function App() {
       <div className="user-selector">
         <div className="select-user">
           <Select
+            label="Select starter:"
+            mt="xs"
             placeholder="Select starter"
             variant="default"
-            w={150}
+            w={180}
+            defaultValue={user}
             data={["O", "X"]}
-            onChange={(e) => setUser(e)}
+            onChange={(e) => changeUser(e)}
+            disabled={disableUserSelect}
           />
-          <p className="user-description">Default Starter: O</p>
+          {/* <p className="user-description">Default Starter: O</p> */}
         </div>
       </div>
 
       <div className="Gamepad">
         <div className="Gamebody">
           {boxVal.map((bx, idx) => (
-            <div
-              className="boxex"
-              onClick={() => handleClick(idx)}
-              key={idx}
-              // disabled={true}
-            >
+            <div className="boxex" onClick={() => handleClick(idx)} key={idx}>
               {bx.val}
             </div>
           ))}
