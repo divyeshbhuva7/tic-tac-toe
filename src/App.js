@@ -23,12 +23,14 @@ function App() {
   ]);
 
   function victory() {
+    //  horizontal cases:-------------------------------
     if (
       boxVal[0].val !== "" &&
       boxVal[1].val !== "" &&
       boxVal[2].val !== "" &&
       boxVal[0].val === boxVal[1].val &&
-      boxVal[0].val === boxVal[2].val
+      boxVal[1].val === boxVal[2].val &&
+      boxVal[2].val === boxVal[0].val
     ) {
       setWinner(boxVal[0].val);
     }
@@ -37,7 +39,8 @@ function App() {
       boxVal[4].val !== "" &&
       boxVal[5].val !== "" &&
       boxVal[3].val === boxVal[4].val &&
-      boxVal[3].val === boxVal[5].val
+      boxVal[4].val === boxVal[5].val &&
+      boxVal[5].val === boxVal[3].val
     ) {
       setWinner(boxVal[3].val);
     }
@@ -46,17 +49,20 @@ function App() {
       boxVal[7].val !== "" &&
       boxVal[8].val !== "" &&
       boxVal[6].val === boxVal[7].val &&
-      boxVal[6].val === boxVal[8].val
+      boxVal[7].val === boxVal[8].val &&
+      boxVal[8].val === boxVal[6].val
     ) {
       setWinner(boxVal[6].val);
     }
 
+    //  vertical cases:-------------------------------
     if (
       boxVal[0].val !== "" &&
       boxVal[3].val !== "" &&
       boxVal[6].val !== "" &&
       boxVal[0].val === boxVal[3].val &&
-      boxVal[0].val === boxVal[6].val
+      boxVal[3].val === boxVal[6].val &&
+      boxVal[6].val === boxVal[0].val
     ) {
       setWinner(boxVal[0].val);
     }
@@ -65,7 +71,8 @@ function App() {
       boxVal[4].val !== "" &&
       boxVal[7].val !== "" &&
       boxVal[1].val === boxVal[4].val &&
-      boxVal[1].val === boxVal[7].val
+      boxVal[4].val === boxVal[7].val &&
+      boxVal[7].val === boxVal[1].val
     ) {
       setWinner(boxVal[1].val);
     }
@@ -74,17 +81,21 @@ function App() {
       boxVal[5].val !== "" &&
       boxVal[8].val !== "" &&
       boxVal[2].val === boxVal[5].val &&
-      boxVal[2].val === boxVal[8].val
+      boxVal[5].val === boxVal[8].val &&
+      boxVal[8].val === boxVal[2].val
     ) {
       setWinner(boxVal[2].val);
     }
 
+    //  cross cases:-------------------------------
+
     if (
       boxVal[0].val !== "" &&
-      boxVal[1].val !== "" &&
+      boxVal[4].val !== "" &&
       boxVal[8].val !== "" &&
-      boxVal[0].val === boxVal[1].val &&
-      boxVal[0].val === boxVal[8].val
+      boxVal[0].val === boxVal[4].val &&
+      boxVal[4].val === boxVal[8].val &&
+      boxVal[8].val === boxVal[0].val
     ) {
       setWinner(boxVal[0].val);
     }
@@ -93,7 +104,8 @@ function App() {
       boxVal[4].val !== "" &&
       boxVal[6].val !== "" &&
       boxVal[2].val === boxVal[4].val &&
-      boxVal[2].val === boxVal[6].val
+      boxVal[4].val === boxVal[6].val &&
+      boxVal[6].val === boxVal[2].val
     ) {
       setWinner(boxVal[2].val);
     }
