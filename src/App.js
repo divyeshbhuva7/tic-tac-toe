@@ -7,6 +7,7 @@ import { useViewportSize } from "@mantine/hooks";
 function App() {
   const { width, height } = useViewportSize();
 
+  const [userSelection, setUserSelection] = useState("O");
   const [user, setUser] = useState("O");
   const [winner, setWinner] = useState("");
 
@@ -129,10 +130,13 @@ function App() {
 
   function changeUser(e) {
     setUser(e);
+    setUserSelection(e);
   }
 
   const handleReset = () => {
     setWinner("");
+    setUserSelection("O");
+    setUser("O");
     setDisableUserSelect(false);
 
     setBoxVal([
@@ -165,7 +169,7 @@ function App() {
             placeholder="Select starter"
             variant="default"
             w={180}
-            defaultValue={user}
+            value={userSelection}
             data={["O", "X"]}
             onChange={(e) => changeUser(e)}
             disabled={disableUserSelect}
