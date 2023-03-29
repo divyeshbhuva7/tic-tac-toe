@@ -156,6 +156,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: transparent;
 }
 
 .boxex:nth-child(4),

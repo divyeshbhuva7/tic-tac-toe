@@ -112,11 +112,12 @@ function App() {
   }
 
   const handleClick = (idx) => {
-    if (boxVal[idx].val === "") {
+    if (winner === "" && boxVal[idx].val === "") {
       setBoxVal([...boxVal, (boxVal[idx].val = user)]);
+    } else {
+      return;
     }
     user === "O" ? setUser("X") : setUser("O");
-
     victory(idx);
   };
 
@@ -163,7 +164,12 @@ function App() {
       <div className="Gamepad">
         <div className="Gamebody">
           {boxVal.map((bx, idx) => (
-            <div className="boxex" onClick={() => handleClick(idx)} key={idx}>
+            <div
+              className="boxex"
+              onClick={() => handleClick(idx)}
+              key={idx}
+              // disabled={true}
+            >
               {bx.val}
             </div>
           ))}
