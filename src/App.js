@@ -6,13 +6,6 @@ import { useViewportSize } from "@mantine/hooks";
 
 function App() {
   const { width, height } = useViewportSize();
-
-  const [userSelection, setUserSelection] = useState("O");
-  const [user, setUser] = useState("O");
-  const [winner, setWinner] = useState("");
-
-  const [disableUserSelect, setDisableUserSelect] = useState(false);
-
   const [boxVal, setBoxVal] = useState([
     { val: "" },
     { val: "" },
@@ -24,6 +17,12 @@ function App() {
     { val: "" },
     { val: "" },
   ]);
+
+  const [user, setUser] = useState("O");
+  const [userSelection, setUserSelection] = useState("O");
+  const [disableUserSelect, setDisableUserSelect] = useState(false);
+
+  const [winner, setWinner] = useState("");
 
   function victory() {
     //  horizontal cases:-------------------------------
