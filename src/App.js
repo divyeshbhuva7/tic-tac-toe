@@ -132,6 +132,8 @@ function App() {
 
   const handleReset = () => {
     setWinner("");
+    setDisableUserSelect(false);
+
     setBoxVal([
       { val: "" },
       { val: "" },
